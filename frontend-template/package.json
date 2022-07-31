@@ -1,0 +1,40 @@
+{
+  "name": "frontend-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "addplatform": "npx cap add android && npx cap add ios && npx cap add @capacitor-community/electron",
+    "syncplatform": "npx cap sync",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.9",
+    "@capacitor-community/electron": "^4.1.2",
+    "@capacitor/android": "^4.0.1",
+    "@capacitor/core": "^4.0.1",
+    "@capacitor/ios": "^4.0.1",
+    "axios": "^0.27.2",
+    "babel": "^6.23.0",
+    "flowbite": "^1.5.1",
+    "next": "12.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.18.9",
+    "@capacitor/cli": "^4.0.1",
+    "@types/node": "18.6.2",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "autoprefixer": "^10.4.8",
+    "eslint": "8.20.0",
+    "eslint-config-next": "12.2.3",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.6",
+    "typescript": "4.7.4"
+  }
+}

@@ -1,0 +1,48 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./backend-template
+      dockerfile: Dockerfile
+    image: backend-template
+    container_name: backend-template
+    command: node dist/main.js
+    ports:
+      - "3001:3001"
+    depends_on:
+      - postgresql
+    env_file: ./backend-template/src/common/envs/.env
+    networks:
+      - app-network
+  postgresql:
+    image: postgres:latest
+    volumes:
+      - /data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+  client:
+    build:
+      context: ./frontend-template
+      dockerfile: Dockerfile
+    image: frontend-template
+    container_name: frontend-template
+    command: npm start
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    data_volume:
+    node_modules:
+    web-root:
+      driver: local
